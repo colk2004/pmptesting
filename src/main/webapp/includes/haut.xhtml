@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<body>
+	<h:form id="mainForm">
+	<p:growl id="msgs" showDetail="true"/>
+		<p:panelGrid columns="1">
+			<p:dataTable id="pgTable" value="#{domainBean.domainList}"
+				var="pg" width="50px" editable="true">
+				<p:column id="code" width="10px">
+					
+						<f:facet name="header">
+							<h:outputText value="code" />
+						</f:facet>
+						<h:outputText value="#{pg.id}" />
+					
+				</p:column>
+				<p:column id="name" width="50px">
+					
+						<f:facet name="header">
+							<h:outputText value="description" />
+						</f:facet>
+						<h:outputText value="#{pg.description}" />
+						
+				</p:column>
+				
+			</p:dataTable>
+			<h:panelGroup>
+				<h:commandButton value="Detail" action="#{domainBean.viewDetail}" />
+				<h:commandButton value="Nouveau" action="#{domainBean.viewNew}" />
+			</h:panelGroup>
+		</p:panelGrid>
+	</h:form>
+
+</body>
+</html>

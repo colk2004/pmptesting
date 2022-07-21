@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+
+	<title><ui:insert name="title">Default title</ui:insert></title>
+
+	<link rel="stylesheet" type="text/css" href="../css/style.css" />
+
+</h:head>
+<h:body>
+	<div id="header" class="entete">
+	<ui:insert name="header"></ui:insert>
+</div>
+	<div id="menu" class="menu">
+		<h:form>
+			<p:growl id="messages" showDetail="true" />
+
+			<p:menuButton value="Administration">
+				<p:menuitem value="Créer un utilisateur" action="createUser" />
+				<p:menuitem value="Creer une Question" action="newQuestion"/>
+				<p:menuitem value="Creer un Domaine" action="newDomain" />
+				<p:menuitem value="Creer un Groupe de Processus"
+					action="newProcessGroup" />
+				<p:menuitem value="Modifier une Question" />
+				<p:menuitem value="Supprimer une Question" />
+				<p:separator />
+				<p:menuitem value="Homepage" url="http://www.primefaces.org"
+					icon="ui-icon-extlink" />
+			</p:menuButton>
+			<p:menuButton value="Examen PMP">
+				<p:menuitem value="Avec Compteur" action="newPMPCompteur"/>
+				<p:menuitem value="Sans Compteur" action="pmpSansCompteur"/>
+				<p:menuitem value="Par Groupe de Processus" action="parGroupeProcessus"/>
+				<p:menuitem value="Par Domaine" action="parDomaine" />
+				<p:menuitem value="Par mot clé" action="parMotCle"/>
+				<p:separator />
+				
+			</p:menuButton>
+			<p:menuButton value="Historique">
+
+			</p:menuButton>
+			<p:menuButton value="Graphiques">
+
+			</p:menuButton>
+		</h:form>
+	</div>
+	<div id="menuspecifique" >
+		<ui:insert name="menuspecifique"></ui:insert>
+	</div>
+	
+	<div id="content" >
+		<ui:insert name="content">Default content</ui:insert>
+	</div>
+	<div id="footer">Footer</div>
+
+</h:body>
+</html>

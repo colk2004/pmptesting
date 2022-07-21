@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+
+<ui:composition template="templates/template.xhtml">
+	<ui:define name="content">
+		<h:form id="mainForm">
+
+			<p:panelGrid columns="1">
+		Preparer un examen PMP
+		
+			
+			
+			<h:panelGroup>
+					<h:commandButton value="Terminer le Test"
+						action="#{pmpExamBean.terminer}" />
+
+				</h:panelGroup>
+			</p:panelGrid>
+		</h:form>
+		<h:form id="question">
+
+		<h:panelGrid columns="1" id="pquestion" >
+		 Repondez aux questions
+			<p:dataTable id="pgTable" value="#{pmpExamBean.questionsExamEnCours}"
+				var="qt" paginator="true" rows="1"   rowIndexVar="indice"
+				paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink}  {NextPageLink} {LastPageLink} "
+				currentPageReportTemplate="{startRecord} sur {totalRecords} Questions"
+				rowsPerPageTemplate="1"  >
+
+
+				<p:column id="name" width="50px">
+				
+				
+					
+					<h:outputText value="Q #{indice +1} - #{qt.description}"  />
+					<br></br>
+				
+					<p:selectOneRadio layout="grid" columns="1">
+
+
+						<f:selectItem itemLabel="#{qt.reponsea}" itemValue="A" />
+
+						<f:selectItem itemLabel="#{qt.reponseb}" itemValue="B" />
+
+						<f:selectItem itemLabel="#{qt.reponsec}" itemValue="C" />
+						<f:selectItem itemLabel="#{qt.reponsed}" itemValue="D" />
+
+					</p:selectOneRadio>
+					
+					
+				
+					<p:commandButton value="Voir la reponse" action="#{pmpExamBean.afficherBonneReponse}" update="pgTable" process="@this" >
+					</p:commandButton>
+					<div>
+					
+					<h:outputText id="reponse" value="#{qt.bonneReponse}"  rendered="#{pmpExamBean.afficherReponse== true}" />
+					</div>
+					<h:inputHidden id="description" value="#{questionBean.description} />
+					
+
+
+
+				</p:column>
+
+
+			</p:dataTable>
+
+		</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>
+
+
+</html>

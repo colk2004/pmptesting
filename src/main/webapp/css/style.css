@@ -1,0 +1,49 @@
+#header {
+   width:95%; /* Largeur du bloc */
+   height:50px; /* Hauteur du bloc */
+   padding:5px; /* Marges intérieures */
+   border: 2px solid gray; 
+   font-family:"century gothic", arial, tahoma;
+   font-size:16px;
+} 
+
+#footer {
+   width:95%; /* Largeur du bloc */
+   height:50px; /* Hauteur du bloc */
+   padding:5px; /* Marges intérieures */
+   border: 2px solid gray; /* bordure en pointillé, d'un pixel et en gris */
+   font-family:"century gothic", arial, tahoma;
+   font-size:16px;
+} 
+
+
+.menu{
+   width:95%;x; /* Largeur du bloc */
+   height:30px; /* Hauteur du bloc */
+   padding:5px; /* Marges intérieures */
+   border: 2px solid gray; /* bordure en pointillé, d'un pixel et en gris */
+   font-family:"century gothic", arial, tahoma;
+   font-size:16px;
+   padding-bottom: 10px;
+} 
+
+#content{
+   width:95%; /* Largeur du bloc */
+   height:750px; /* Hauteur du bloc */
+   left: 100px;
+   border: 2px solid; /* bordure en pointillé, d'un pixel et en gris */
+   font-family:"century gothic", arial, tahoma;
+   font-size:16px;
+   padding-top: 30px;
+    padding-left :5px;
+  
+   
+} 
+
+.code{
+	width: 10px;
+}
+
+.ui-datatable {
+	background: red;
+}

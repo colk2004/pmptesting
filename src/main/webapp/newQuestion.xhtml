@@ -1,0 +1,168 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head><link rel="stylesheet" type="text/css" href="./css/style.css" />
+</h:head>
+
+<ui:composition template="templates/template.xhtml">
+	<ui:define name="content">
+		<h:form id="mainForm">
+	Creer une question d'examen 
+		<p:panelGrid columns="2">
+
+				<p:outputLabel value="Desrcription" for="description" />
+				<p:inputText id="description" value="#{questionBean.description}"
+					required="true" />
+
+				<p:outputLabel value="Complexite" for="complexite" />
+				<p:selectOneRadio id="complexite" value="#{questionBean.complexity}"
+					required="true">
+					<f:selectItem itemLabel="Faible" itemValue="faible" />
+					<f:selectItem itemLabel="Moyen" itemValue="moyen" />
+					<f:selectItem itemLabel="Expert" itemValue="expert" />
+				</p:selectOneRadio>
+				
+					<p:outputLabel value="Domaine de Connaissances" for="domaine" />
+				<p:selectOneMenu  id="domaine" value="#{questionBean.codDomain}" required="true">
+					<f:selectItems value="#{domainBean.domaines}" var="d" itemLabel="#{d.description}" itemValue="#{id}" />
+
+				</p:selectOneMenu >
+				
+				<p:outputLabel value="Reponse A" for="a" />
+				<p:inputText id="a" value="#{questionBean.reponsea}"
+					required="true" />
+				<p:outputLabel value="Reponse B" for="b" />
+				<p:inputText id="b" value="#{questionBean.reponseb}"
+					required="true" />
+				<p:outputLabel value="Reponse C" for="c" />
+				<p:inputText id="c" value="#{questionBean.reponsec}"
+					required="true" />
+				<p:outputLabel value="Reponse D" for="d" />
+				<p:inputText id="d" value="#{questionBean.reponsed}"
+					required="true" />
+
+			
+				
+				<p:outputLabel value="Bonne Reponse" for="br" />
+				<p:inputText id="br" value="#{questionBean.bonneReponse}"
+					required="true" />
+					
+				<p:outputLabel value="Explication" for="explication" />
+				<p:inputText id="explication" value="#{questionBean.explication}"
+					required="true" />
+				
+				<p:outputLabel value="Groupe de processus" for="groupe" />
+				<p:selectOneMenu  id="groupe" value="#{questionBean.codProcessGroup}"
+					required="true">
+					<f:selectItems value="#{processGroupBean.processGroups}" var="pg"
+						itemLabel="#{description}" itemValue="#{id}" />
+
+				</p:selectOneMenu >
+
+				<h:panelGroup>
+					<h:commandButton value="Sauver" action="#{questionBean.creer}" />
+					
+
+				</h:panelGroup>
+			</p:panelGrid>
+		</h:form>
+
+		<p:panelGrid columns="1">
+		 Liste des Questions 
+			<p:dataTable id="pgTable" value="#{questionBean.questionList}"
+				var="q" width="50px" editable="true">
+				<p:column class="code" width="3%"  >
+
+					<f:facet name="header" >
+						<h:outputText value="Code"  />
+					</f:facet>
+					<h:outputText value="#{q.id}" />
+
+				</p:column>
+				<p:column id="name" width="30%">
+
+					<f:facet name="header">
+						<h:outputText value="Description" />
+					</f:facet>
+					<h:outputText value="#{q.description}" />
+
+				</p:column>
+				
+				<p:column id="repA" width="10%">
+
+					<f:facet name="header">
+						<h:outputText value="Reponse A" />
+					</f:facet>
+					<h:outputText value="#{q.reponsea}" />
+
+				</p:column>
+				<p:column id="repB" width="10%">
+
+					<f:facet name="header">
+						<h:outputText value="Reponse B" />
+					</f:facet>
+					<h:outputText value="#{q.reponseb}" />
+
+				</p:column>
+				
+				<p:column id="repC" width="10%">
+
+					<f:facet name="header">
+						<h:outputText value="Reponse C" />
+					</f:facet>
+					<h:outputText value="#{q.reponsec}" />
+
+				</p:column>
+				<p:column id="repD" width="10%">
+
+					<f:facet name="header">
+						<h:outputText value="Reponse D" />
+					</f:facet>
+					<h:outputText value="#{q.reponsed}" />
+
+				</p:column>
+				<p:column id="bonneReponse" width="5%">
+
+					<f:facet name="header">
+						<h:outputText value="Bonne Reponse" />
+					</f:facet>
+					<h:outputText value="#{q.bonneReponse}" />
+
+				</p:column>
+				<p:column id="explication" width="15%">
+
+					<f:facet name="header">
+						<h:outputText value="Explication" />
+					</f:facet>
+					<h:outputText value="#{q.explication}" />
+
+				</p:column>
+				<p:column id="groupe" width="5%">
+
+					<f:facet name="header">
+						<h:outputText value="Groupe" />
+					</f:facet>
+					<h:outputText value="#{q.processGroup.description}" />
+
+				</p:column>
+				<p:column id="domaine" width="5%">
+
+					<f:facet name="header">
+						<h:outputText value="Domaine" />
+					</f:facet>
+					<h:outputText value="#{q.domain.description}" />
+
+				</p:column>
+
+			</p:dataTable>
+
+		</p:panelGrid>
+	</ui:define>
+</ui:composition>
+
+
+</html>

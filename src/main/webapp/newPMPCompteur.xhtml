@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+
+<ui:composition template="templates/template.xhtml">
+<ui:define name="content">
+	<h:form id="mainForm">
+	
+		<p:panelGrid columns="1">
+		Preparer un examen PMP
+		
+			
+			
+			<h:panelGroup>
+				<h:commandButton value="Demarrer le Test" action="#{pmpExamBean.creer}" />
+				
+			</h:panelGroup>
+		</p:panelGrid>
+	</h:form>
+	
+	<p:panelGrid columns="1">
+		 Liste des tests  à consulter
+			<p:dataTable id="pgTable" value="#{pmpExamBean.examList}" 
+				var="pg" width="50px" editable="true">
+				<p:column>
+				<f:facet name="header">
+						<h:outputText value="Question N° " />
+					</f:facet>
+					<h:outputText value="#{ligne}" />
+					<br></br>
+				</p:column>
+				<p:column class="code" width="10px">
+					
+						<f:facet name="header">
+							<h:outputText value="code" />
+						</f:facet>
+						<h:outputText value="#{pg.id}" />
+					
+				</p:column>
+				<p:column id="name" width="50px">
+					
+						<f:facet name="header">
+							<h:outputText value="description" />
+						</f:facet>
+						<h:outputText value="#{pg.description}" />
+						
+				</p:column>
+				
+			</p:dataTable>
+			
+		</p:panelGrid>
+</ui:define>
+</ui:composition>
+
+
+</html>

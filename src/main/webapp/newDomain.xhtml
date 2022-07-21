@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+
+<ui:composition template="templates/template.xhtml">
+<ui:define name="content">
+	<h:form id="mainForm">
+	
+		<p:panelGrid columns="1">
+		Creer un domain de connaissances
+		
+			<p:outputLabel value="Desrcription" for="description"/>
+			<p:inputText id="description" value="#{domainBean.description}" required="true"/>
+			
+			<h:panelGroup>
+				<h:commandButton value="Sauver" action="#{domainBean.creer}" />
+				
+			</h:panelGroup>
+		</p:panelGrid>
+	</h:form>
+	
+	<p:panelGrid columns="1">
+		 Liste des domaines de Connaissances
+			<p:dataTable id="pgTable" value="#{domainBean.domainList}"
+				var="pg" width="50px" editable="true">
+				<p:column class="code" width="10px">
+					
+						<f:facet name="header">
+							<h:outputText value="code" />
+						</f:facet>
+						<h:outputText value="#{pg.id}" />
+					
+				</p:column>
+				<p:column id="name" width="50px">
+					
+						<f:facet name="header">
+							<h:outputText value="description" />
+						</f:facet>
+						<h:outputText value="#{pg.description}" />
+						
+				</p:column>
+				
+			</p:dataTable>
+			
+		</p:panelGrid>
+</ui:define>
+</ui:composition>
+
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="templates/template.xhtml">
+
+<ui:define name="header">liste des questions</ui:define>
+
+<ui:define name="content">
+
+	<h:form id="mainForm" >
+	<p:growl id="msgs" showDetail="true"/>
+	<p:panelGrid columns="1">Liste des questions
+		
+			<p:dataTable id="qtionTable" value="#{questionBean.questionList}"
+				var="pg" width="50px" editable="true">
+				<p:column id="code" width="10px">
+					
+						<f:facet name="header">
+							<h:outputText value="code" />
+						</f:facet>
+						<h:outputText value="#{pg.id}" />
+					
+				</p:column>
+				<p:column id="question" width="50px">					
+						<f:facet name="header">
+							<h:outputText value="Question" />
+						</f:facet>
+						<h:outputText value="#{pg.description}" />						
+				</p:column>
+				<p:column id="response" width="50px">					
+						<f:facet name="header">
+							<h:outputText value="Reponse" />
+						</f:facet>
+						<h:outputText value="#{pg.response}" />						
+				</p:column>
+				<p:column id="comment" width="50px">					
+						<f:facet name="header">
+							<h:outputText value="comment" />
+						</f:facet>
+						<h:outputText value="#{pg.responseComment}" />						
+				</p:column>
+				
+			</p:dataTable>
+			</p:panelGrid>
+			<h:panelGroup>
+				<h:commandButton value="Detail" action="#{questionBean.viewDetail}" />
+				<h:commandButton value="Nouveau" action="createQuestion" />
+			</h:panelGroup>
+		
+	</h:form>
+</ui:define>
+</ui:composition>
+
+</html>

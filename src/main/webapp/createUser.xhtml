@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+
+<ui:composition template="templates/template.xhtml">
+
+<ui:define name="header">Formulaire de création d'un utilisateur</ui:define>
+
+<ui:define name="content">
+
+	<h:form id="mainForm">
+		
+		<p:panelGrid columns="2">
+	
+		
+			<p:outputLabel value="Name " for="name"/>
+			<p:inputText id="name" value="#{userBean.currentUser.name}" required="true">
+			<f:validateLength minimum="3" />
+			</p:inputText>
+			<p:outputLabel value="FirstName" for="firstName" />
+			<p:inputText id="firstName" value="#{userBean.currentUser.firstName}" />
+			
+			<p:outputLabel value="Phone" for="phone" />
+			<p:inputText id="phone" value="#{userBean.currentUser.phone}" />
+			
+			<p:outputLabel value="Email" for="email" />
+			<p:inputText id="email" value="#{userBean.currentUser.email}" />
+			
+			
+				<h:commandButton value="Sauver" action="#{userBean.creer}" />
+				<h:commandButton type="reset" value="Reset"></h:commandButton>
+				
+			
+		</p:panelGrid>
+	</h:form>
+	
+	
+		Liste des utilisateurs
+		
+					<p:dataTable id="usrTable" value="#{userBean.userList}"
+				var="pg" width="50px" editable="true">
+				<p:column id="code">
+					
+						<f:facet name="header">
+							<h:outputText value="code" />
+						</f:facet>
+						<h:outputText value="#{pg.id}" />
+					
+				</p:column>
+				<p:column id="name" >
+					
+						<f:facet name="header">
+							<h:outputText value="Name" />
+						</f:facet>
+						<h:outputText value="#{pg.name}" />
+						
+				</p:column>
+				<p:column id="firsname" >
+					
+						<f:facet name="header">
+							<h:outputText value="First Name" />
+						</f:facet>
+						<h:outputText value="#{pg.firstName}" />
+						
+				</p:column>
+				
+			</p:dataTable>
+		
+		
+
+	</ui:define>
+</ui:composition>
+
+</html>

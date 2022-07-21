@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head></h:head>
+<body>
+<h:form>
+    <p:growl id="messages" showDetail="true"/>
+ 
+    <p:menuButton value="Administration">
+        <p:menuitem value="Créer un utilisateur" action="createUser"/>
+        <p:menuitem value="Creer une Question" />
+        <p:menuitem value="Creer un Domaine" action="newDomain"/>
+        <p:menuitem value="Creer un Groupe de Processus" action="newProcessGroup"/>
+        <p:menuitem value="Modifier une Question" />
+        <p:menuitem value="Supprimer une Question" />
+        <p:separator />
+        <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink"/>
+    </p:menuButton>
+    <p:menuButton value="Examens">
+        <p:menuitem value="Avec Compteur" />
+        <p:menuitem value="Sans Compteur" />
+        <p:menuitem value="Par Groupe de Processus" />
+        <p:menuitem value="Par Domaine" />
+        <p:menuitem value="Par mot clé" />
+        <p:separator />
+        <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink"/>
+    </p:menuButton>
+    <p:menuButton value="Historique">
+        
+    </p:menuButton>
+    <p:menuButton value="Graphiques">
+        
+    </p:menuButton>
+</h:form>
+
+	<h:form id="mainForm" >
+	<p:growl id="msgs" showDetail="true"/>
+		<p:panelGrid columns="1">
+		 Liste des groupes de processus
+			<p:dataTable id="pgTable" value="#{processGroupBean.processGroupList}"
+				var="pg" width="50px" editable="true">
+				<p:column id="code" width="10px">
+					
+						<f:facet name="header">
+							<h:outputText value="code" />
+						</f:facet>
+						<h:outputText value="#{pg.id}" />
+					
+				</p:column>
+				<p:column id="name" width="50px">
+					
+						<f:facet name="header">
+							<h:outputText value="description" />
+						</f:facet>
+						<h:outputText value="#{pg.description}" />
+						
+				</p:column>
+				
+			</p:dataTable>
+			<h:panelGroup>
+				<h:commandButton value="Detail" action="#{processGroupBean.viewDetail}" />
+				<h:commandButton value="Nouveau" action="#{processGroupBean.viewNew}" />
+			</h:panelGroup>
+		</p:panelGrid>
+	</h:form>
+
+</body>
+</html>

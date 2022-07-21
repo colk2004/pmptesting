@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:a4j="http://richfaces.org/a4j">
+
+<ui:composition template="/templates/template.xhtml">
+<ui:define name="pageTitle">OPS PMP Simulator</ui:define>
+<ui:insert name="title"></ui:insert>
+<ui:define name="enTete">
+
+	<div id="logo">
+		<table width="100%" >
+			<tr>
+			<td colspan="4" align="right" ><h:outputLabel value="Bienvenu " >#{userName}</h:outputLabel></td>
+		</tr>
+			<tr>
+				<td align="left" ><h:graphicImage value="/ressources/images/ops_logo.png" alt="logo ici" hight="50" width="300" /></td>
+				<td colspan="3" align="center"> <h:outputLabel value="Systeme Integré de Gestion de Réunions" /></td>
+			</tr>
+			
+		</table>
+	</div>
+	<div id="menu">
+		<ui:insert name="menu"></ui:insert>
+	</div>
+	<div id="recherche">
+		<ui:insert name="recherche"></ui:insert>
+	
+	</div>
+</ui:define>
+<ui:define name="title">SIGRE</ui:define>
+	<ui:define name="menuReunion">
+		<ui:include src="/includes/menuh.xhtml"></ui:include>
+
+	</ui:define>
+	<ui:insert name="contenu"> ccc
+	</ui:insert>
+	
+	
+	
+	
+	<ui:define name="pied">
+		<table bgcolor="#3300ff" width="100%" >
+			<tr align="center"><td colspan="3" style="font-style: italic, color: White,">Ingénierie Informatique-Génie Logiciel- Fourniture des serveurs, destop, equipements IT(Onduleurs, Switch,imprimantes, etc), Formation en Management, MCSA</td></tr>
+			<tr>
+				<td align="left">Copyright 2017: Open Service Engineering Energy SARL</td>
+				<td align="right">Contact</td>
+				<td align="left">Accueil</td>
+			</tr>
+		</table>
+	</ui:define>
+</ui:composition>
+</html>

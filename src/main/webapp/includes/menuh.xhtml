@@ -1,0 +1,40 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:define name="menu_haut">
+	<h:form>
+    <p:growl id="messages" showDetail="true"/>
+ 
+    <p:menuButton value="Administration">
+        <p:menuitem value="Créer un utilisateur" action="createUser"/>
+        <p:menuitem value="Creer une Question" action="newQuestion"/>
+        <p:menuitem value="Creer un Domaine" action="newDomain"/>
+        <p:menuitem value="Creer un Groupe de Processus" action="newProcessGroup"/>
+        <p:menuitem value="Modifier une Question" action="altQuestion"/>
+        <p:menuitem value="Supprimer une Question" action="delQuestion"/>
+        <p:separator />
+        <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink"/>
+    </p:menuButton>
+    <p:menuButton value="Examens">
+        <p:menuitem value="Avec Compteur" action="pmpAvecCompteur"/>
+        <p:menuitem value="Sans Compteur" action="pmpSansCompteur"/>
+        <p:menuitem value="Par Groupe de Processus" action="pmpParGroupe"/>
+        <p:menuitem value="Par Domaine" action="pmpParDomaine" />
+        <p:menuitem value="Par mot clé" action="pmpParmotCle"/>
+        <p:separator />
+        <p:menuitem value="Homepage" url="http://www.primefaces.org" icon="ui-icon-extlink"/>
+    </p:menuButton>
+    <p:menuButton value="Historique" action="historique">
+        
+    </p:menuButton>
+    <p:menuButton value="Graphiques" action="graphique">
+        
+    </p:menuButton>
+</h:form>
+</ui:define>
+
+</ui:composition>
